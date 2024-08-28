@@ -14,14 +14,14 @@ const Home = () => {
         perspective: '10px',
       }}
     >
-      <section className="relative -z-10 w-full sm:h-screen sm:[transform:_translateZ(-10px)_scale(2)]">
+      <section className="relative w-full sm:h-screen sm:[transform:_translateZ(-10px)_scale(2)]">
         <Image
-          className="absolute left-0 right-0 top-0 h-full w-full object-cover"
           alt=""
           src={Backgrounds.building}
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="isolate z-10">
-          <header className="sticky top-0 z-10 flex items-center bg-gradient-to-r from-white/70 via-blue-500/50 to-transparent p-2">
+        <div className="relative isolate z-10">
+          <header className="top-0 z-10 flex items-center bg-gradient-to-r from-white/70 via-blue-500/50 to-transparent p-2">
             <div className="flex items-center space-x-2">
               <TownLogo className="w-16" />
             </div>
@@ -41,14 +41,14 @@ const Home = () => {
                   icon={FaCircleArrowLeft}
                   size="large"
                   theme="primary"
-                  className="absolute top-1/2 -translate-y-1/2 -left-4 -translate-x-full"
+                  className="absolute -left-4 top-1/2 -translate-x-full -translate-y-1/2"
                 />
                 <Button
                   style="icon"
                   icon={FaCircleArrowRight}
                   size="large"
                   theme="primary"
-                  className="absolute top-1/2 -translate-y-1/2 -right-4 translate-x-full"
+                  className="absolute -right-4 top-1/2 -translate-y-1/2 translate-x-full"
                 /> */}
                 <div className="grid gap-4 p-4 sm:grid-cols-3">
                   <Card
