@@ -1,11 +1,9 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 
 import { Backgrounds } from '@/assets/images';
 import { Card } from '@/components/containers';
-import Button from '@/components/input_controls/Button';
+import { Button } from '@/components/input_controls';
 import { Badge, DSWDLogo, TownLogo } from '@/components/informationals';
 
 const Home = () => {

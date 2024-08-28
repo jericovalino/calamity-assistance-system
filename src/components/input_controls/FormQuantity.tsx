@@ -1,13 +1,15 @@
+'use client';
+
 import {
   HiChevronUp,
   HiChevronDown,
   HiOutlineExclamationCircle,
-} from "react-icons/hi";
-import { useRef, type MouseEvent } from "react";
-import { type FieldError } from "react-geek-form";
-import { NumericFormat } from "react-number-format";
+} from 'react-icons/hi';
+import { useRef, type MouseEvent } from 'react';
+import { type FieldError } from 'react-geek-form';
+import { NumericFormat } from 'react-number-format';
 
-import { cn } from "@/utils";
+import { cn } from '@/utils';
 
 type Props = {
   name: string;
@@ -52,10 +54,10 @@ function FormQuantity({
 
       <div
         className={cn(
-          "relative isolate flex w-full overflow-clip rounded border bg-interface",
+          'relative isolate flex w-full overflow-clip rounded border bg-interface',
           error
-            ? "border-danger-subtle bg-danger-subtle text-onDanger-subtle"
-            : "focus-within::border-selected"
+            ? 'border-danger-subtle bg-danger-subtle text-onDanger-subtle'
+            : 'focus-within::border-selected'
         )}
       >
         <button
@@ -84,8 +86,8 @@ function FormQuantity({
           }}
           allowNegative={false}
           className={cn(
-            "z-[1] flex-grow p-[0.625rem] text-sm leading-4 placeholder:text-placeholder",
-            "focus:outline-none disabled:bg-interface-disabled "
+            'z-[1] flex-grow p-[0.625rem] text-sm leading-4 placeholder:text-placeholder',
+            'focus:outline-none disabled:bg-interface-disabled'
           )}
           style={{
             width: `${(value as number).toString().length / 2}rem`,
@@ -99,8 +101,8 @@ function FormQuantity({
           <button
             type="button"
             className={cn(
-              "grid h-full w-full place-items-center text-subtle",
-              "hover:bg-interface-hovered active:bg-interface disabled:cursor-not-allowed"
+              'grid h-full w-full place-items-center text-subtle',
+              'hover:bg-interface-hovered active:bg-interface disabled:cursor-not-allowed'
             )}
             onClick={() =>
               onChange(
@@ -116,8 +118,8 @@ function FormQuantity({
           <button
             type="button"
             className={cn(
-              "grid h-full w-full place-items-center text-subtle",
-              "hover:bg-interface-hovered active:bg-interface disabled:cursor-not-allowed"
+              'grid h-full w-full place-items-center text-subtle',
+              'hover:bg-interface-hovered active:bg-interface disabled:cursor-not-allowed'
             )}
             onClick={() => onChange(Math.max(value - 1, min))}
             disabled={value <= min}
@@ -130,9 +132,9 @@ function FormQuantity({
       {!noError && (
         <small
           className={cn(
-            "flex min-h-[1rem] items-center space-x-1 text-xs",
-            !error && !errorDescription ? "invisible" : "",
-            error ? "text-red-500" : ""
+            'flex min-h-[1rem] items-center space-x-1 text-xs',
+            !error && !errorDescription ? 'invisible' : '',
+            error ? 'text-red-500' : ''
           )}
         >
           {error ? (

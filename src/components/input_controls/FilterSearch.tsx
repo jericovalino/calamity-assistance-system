@@ -1,8 +1,10 @@
-import { useCallback, useState } from "react";
+'use client';
 
-import { cn } from "@/utils";
+import { useCallback, useState } from 'react';
 
-import Button from "./Button";
+import { cn } from '@/utils';
+
+import Button from './Button';
 
 type Props = {
   name: string;
@@ -16,8 +18,8 @@ const FilterSearch = ({
   name,
   value,
   onChange,
-  btnLabel = "Search",
-  placeholder = "Keyword",
+  btnLabel = 'Search',
+  placeholder = 'Keyword',
 }: Props) => {
   const [_value, _setValue] = useState(value);
   const setInnerValueToOuter = useCallback(() => {
@@ -36,8 +38,8 @@ const FilterSearch = ({
         value={_value}
         onChange={(e) => _setValue(e.target.value)}
         className={cn(
-          "h-[2.25rem] w-full rounded px-2 py-[0.625rem] text-sm leading-4 placeholder:text-placeholder",
-          "focus:outline-none"
+          'h-[2.25rem] w-full rounded px-2 py-[0.625rem] text-sm leading-4 placeholder:text-placeholder',
+          'focus:outline-none'
         )}
         placeholder={placeholder}
       />

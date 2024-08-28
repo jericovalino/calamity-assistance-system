@@ -1,10 +1,12 @@
-import { useCallback } from "react";
-import { GiSquare } from "react-icons/gi";
+'use client';
 
-import ModalCard from "../components/containers/ModalCard";
+import { useCallback } from 'react';
+import { GiSquare } from 'react-icons/gi';
 
-import useCreateModal from "./useCreateModal";
-import FilerobotImageEditor, { TABS } from "react-filerobot-image-editor";
+import ModalCard from '../components/containers/ModalCard';
+
+import useCreateModal from './useCreateModal';
+import FilerobotImageEditor, { TABS } from 'react-filerobot-image-editor';
 
 type ImageEditorModalProps = {
   src: string;
@@ -17,6 +19,7 @@ export const ImageEditorModal = ({
   onEditDone,
   onClose,
 }: ImageEditorModalProps) => {
+  if (typeof window === 'undefined') return null;
   return (
     <ModalCard title="Editor" size="2xl" onClose={onClose}>
       <div className="-m-6 h-[30rem]">
@@ -30,10 +33,10 @@ export const ImageEditorModal = ({
           Crop={{
             presetsItems: [
               {
-                icon: () => <GiSquare className="w-3 h-3 text-gray-500" />,
-                titleKey: "Square",
+                icon: () => <GiSquare className="h-3 w-3 text-gray-500" />,
+                titleKey: 'Square',
                 ratio: 1,
-                descriptionKey: "1:1",
+                descriptionKey: '1:1',
               },
             ],
           }}
@@ -57,7 +60,7 @@ const useImageEditor = () => {
     ({
       src,
       onEditDone,
-    }: Pick<ImageEditorModalProps, "onEditDone" | "src">) => {
+    }: Pick<ImageEditorModalProps, 'onEditDone' | 'src'>) => {
       createModal({
         content: (close) => (
           <ImageEditorModal
@@ -71,7 +74,7 @@ const useImageEditor = () => {
         ),
       });
     },
-    [createModal],
+    [createModal]
   );
 
   return {

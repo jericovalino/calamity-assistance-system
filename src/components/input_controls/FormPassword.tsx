@@ -1,10 +1,12 @@
-import { IconType } from "react-icons";
-import { useMemo, useState } from "react";
-import { type FieldError } from "react-geek-form";
-import { HiOutlineExclamationCircle } from "react-icons/hi";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+'use client';
 
-import { cn } from "@/utils";
+import { IconType } from 'react-icons';
+import { useMemo, useState } from 'react';
+import { type FieldError } from 'react-geek-form';
+import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+
+import { cn } from '@/utils';
 
 type Props = {
   name: string;
@@ -37,13 +39,13 @@ function FormPassword({
   errorDescription = undefined,
   onChange,
 }: Props) {
-  const [inputType, setInputType] = useState("password");
+  const [inputType, setInputType] = useState('password');
 
   const hasIcon = useMemo(() => Boolean(Icon), [Icon]);
 
   const toggleHideUnhidePassword = () => {
-    if (inputType === "password") setInputType("text");
-    else setInputType("password");
+    if (inputType === 'password') setInputType('text');
+    else setInputType('password');
   };
 
   return (
@@ -61,9 +63,9 @@ function FormPassword({
         {Icon ? (
           <Icon
             className={cn(
-              "absolute left-[0.625rem] top-1/2 h-[0.875rem] w-[0.875rem] -translate-y-1/2 text-subtle",
-              disabled ? "text-disabled" : "",
-              error ? "text-onDanger-subtle" : ""
+              'absolute left-[0.625rem] top-1/2 h-[0.875rem] w-[0.875rem] -translate-y-1/2 text-subtle',
+              disabled ? 'text-disabled' : '',
+              error ? 'text-onDanger-subtle' : ''
             )}
           />
         ) : null}
@@ -73,19 +75,19 @@ function FormPassword({
           data-test-id={testId}
           value={value}
           className={cn(
-            "w-full rounded border bg-white p-[0.625rem] text-sm leading-4 placeholder:text-placeholder",
-            "focus:outline-none disabled:bg-interface-disabled ",
-            "[&:not(:disabled)]:read-only:border-none [&:not(:disabled)]:read-only:bg-white [&:not(:disabled)]:read-only:px-0 [&:not(:disabled)]:read-only:pt-1.5 ",
-            hasIcon ? "pl-[1.6rem]" : "",
+            'w-full rounded border bg-white p-[0.625rem] text-sm leading-4 placeholder:text-placeholder',
+            'focus:outline-none disabled:bg-interface-disabled',
+            '[&:not(:disabled)]:read-only:border-none [&:not(:disabled)]:read-only:bg-white [&:not(:disabled)]:read-only:px-0 [&:not(:disabled)]:read-only:pt-1.5',
+            hasIcon ? 'pl-[1.6rem]' : '',
             error
-              ? "border-danger-subtle bg-danger-subtle text-onDanger-subtle"
-              : "focus:border-selected"
+              ? 'border-danger-subtle bg-danger-subtle text-onDanger-subtle'
+              : 'focus:border-selected'
           )}
           onChange={(e) => {
             const { value } = e.target;
-            if (typeof onChange === "function") onChange(value);
+            if (typeof onChange === 'function') onChange(value);
           }}
-          placeholder={readOnly ? "-" : placeholder}
+          placeholder={readOnly ? '-' : placeholder}
           disabled={readOnly ? false : disabled}
           readOnly={readOnly}
           maxLength={maxLength}
@@ -94,14 +96,14 @@ function FormPassword({
           tabIndex={-1}
           type="button"
           className={cn(
-            "absolute right-[0.625rem] top-1/2 -translate-y-1/2",
+            'absolute right-[0.625rem] top-1/2 -translate-y-1/2',
             error
-              ? "text-onDanger-subtle"
-              : "text-subtle hover:text-onBrand-subtle"
+              ? 'text-onDanger-subtle'
+              : 'text-subtle hover:text-onBrand-subtle'
           )}
           onClick={toggleHideUnhidePassword}
         >
-          {inputType === "password" ? (
+          {inputType === 'password' ? (
             <AiFillEyeInvisible className="h-[0.875rem] w-[0.875rem]" />
           ) : (
             <AiFillEye className="h-[0.875rem] w-[0.875rem]" />
@@ -110,9 +112,9 @@ function FormPassword({
       </div>
       <small
         className={cn(
-          "!mt-0.5 flex min-h-[1rem] items-center space-x-1 text-xs",
-          !error && !errorDescription ? "invisible" : "",
-          error ? "text-onDanger-subtle" : ""
+          '!mt-0.5 flex min-h-[1rem] items-center space-x-1 text-xs',
+          !error && !errorDescription ? 'invisible' : '',
+          error ? 'text-onDanger-subtle' : ''
         )}
       >
         {error ? (

@@ -1,3 +1,5 @@
+'use client';
+
 import { ModalContext } from "@/providers/ModalProvider";
 import { useCallback, useContext, useEffect, useRef } from "react";
 

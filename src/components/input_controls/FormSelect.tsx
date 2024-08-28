@@ -1,15 +1,17 @@
-import { isEmpty } from "lodash";
-import { MdClose } from "react-icons/md";
-import { Combobox } from "@headlessui/react";
-import { HiChevronDown } from "react-icons/hi";
-import { type ErrorOption } from "react-geek-form";
-import { Fragment, useMemo, useState } from "react";
-import { HiOutlineExclamationCircle } from "react-icons/hi";
+'use client';
 
-import { cn } from "@/utils";
-import { useOnClickOutside } from "@/hooks";
+import { isEmpty } from 'lodash';
+import { MdClose } from 'react-icons/md';
+import { Combobox } from '@headlessui/react';
+import { HiChevronDown } from 'react-icons/hi';
+import { type ErrorOption } from 'react-geek-form';
+import { Fragment, useMemo, useState } from 'react';
+import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
-import { Badge } from "@/components/informationals";
+import { cn } from '@/utils';
+import { useOnClickOutside } from '@/hooks';
+
+import { Badge } from '@/components/informationals';
 
 type Option = {
   label: string;
@@ -29,14 +31,14 @@ type Props = {
   onBlur?: () => void;
 } & (
   | {
-      type?: "single";
-      value: Option["value"];
-      onChange: (value: Option["value"]) => void;
+      type?: 'single';
+      value: Option['value'];
+      onChange: (value: Option['value']) => void;
     }
   | {
-      type: "multiple";
-      value: Option["value"][];
-      onChange: (value: Option["value"][]) => void;
+      type: 'multiple';
+      value: Option['value'][];
+      onChange: (value: Option['value'][]) => void;
       selectAllLabel?: string;
     }
 );
@@ -48,12 +50,12 @@ const FormSelect = ({
   options,
   disabled = false,
   error,
-  placeholder = "Select an item",
+  placeholder = 'Select an item',
   onBlur,
   errorDescription,
   ...rest
 }: Props) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   const filteredOptions = useMemo(() => {
     if (!query) return options;
@@ -84,14 +86,14 @@ const FormSelect = ({
           as={Fragment}
           // @ts-expect-error
           value={rest.value}
-          onChange={(selectedOptionValue: Option["value"]) => {
-            if (rest.type === "multiple") {
+          onChange={(selectedOptionValue: Option['value']) => {
+            if (rest.type === 'multiple') {
               rest.onChange(
-                (rest.value as Option["value"][]).includes(
-                  selectedOptionValue as Option["value"]
+                (rest.value as Option['value'][]).includes(
+                  selectedOptionValue as Option['value']
                 )
-                  ? (rest.value as Option["value"][]).filter(
-                      (v: Option["value"]) => v !== selectedOptionValue
+                  ? (rest.value as Option['value'][]).filter(
+                      (v: Option['value']) => v !== selectedOptionValue
                     )
                   : // @ts-expect-error
                     [...new Set(rest.value).add(selectedOptionValue)]
@@ -104,35 +106,36 @@ const FormSelect = ({
         >
           <Combobox.Button
             className={cn(
-              "flex w-full items-end justify-between rounded border bg-white p-[0.625rem] text-sm leading-4",
-              isEmpty(rest.value) ? "text-placeholder" : "",
+              'flex w-full items-end justify-between rounded border bg-white p-[0.625rem] text-sm leading-4',
+              isEmpty(rest.value) ? 'text-placeholder' : '',
               error
-                ? "border-danger-subtle bg-danger-subtle text-onDanger-subtle"
-                : ""
+                ? 'border-danger-subtle bg-danger-subtle text-onDanger-subtle'
+                : ''
             )}
             onClick={() => setShowOptions(true)}
           >
             <span>
               {isEmpty(rest.value)
                 ? placeholder
-                : rest.type === "multiple"
-                ? `${rest.value.length} item selected`
-                : options.find((option) => option.value === rest.value)?.label}
+                : rest.type === 'multiple'
+                  ? `${rest.value.length} item selected`
+                  : options.find((option) => option.value === rest.value)
+                      ?.label}
             </span>
             <HiChevronDown className="h-[0.875rem] w-[0.875rem]" />
           </Combobox.Button>
           {showOptions && (
             <Combobox.Options
-              static={rest.type === "multiple"}
+              static={rest.type === 'multiple'}
               className={cn(
-                "roudned absolute left-0 right-0 top-full z-10 mt-2 bg-white shadow"
+                'roudned absolute left-0 right-0 top-full z-10 mt-2 bg-white shadow'
               )}
             >
               <Combobox.Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 className={cn(
-                  "w-full bg-slate-100 p-[0.625rem] text-sm leading-4 focus:outline-none"
+                  'w-full bg-slate-100 p-[0.625rem] text-sm leading-4 focus:outline-none'
                 )}
                 placeholder="Search Keyword"
               />
@@ -143,10 +146,10 @@ const FormSelect = ({
                       key={option.value}
                       value={option.value}
                       className={cn(
-                        "flex cursor-pointer items-center space-x-1 p-[0.625rem] text-sm leading-4 hover:bg-slate-50"
+                        'flex cursor-pointer items-center space-x-1 p-[0.625rem] text-sm leading-4 hover:bg-slate-50'
                       )}
                     >
-                      {rest.type === "multiple" && (
+                      {rest.type === 'multiple' && (
                         <input
                           type="checkbox"
                           className="accent-[var(--brand-500)]"
@@ -160,23 +163,23 @@ const FormSelect = ({
                 ) : (
                   <div
                     className={cn(
-                      "cursor-not-allowed p-[0.625rem] text-sm leading-4 hover:bg-slate-50"
+                      'cursor-not-allowed p-[0.625rem] text-sm leading-4 hover:bg-slate-50'
                     )}
                   >
                     No Items Found
                   </div>
                 )}
-                {rest.type === "multiple" && (
+                {rest.type === 'multiple' && (
                   <button
                     type="button"
                     className={cn(
-                      "sticky bottom-0 w-full bg-white p-[0.625rem] text-left text-sm font-bold leading-4 text-brand hover:bg-slate-50"
+                      'sticky bottom-0 w-full bg-white p-[0.625rem] text-left text-sm font-bold leading-4 text-brand hover:bg-slate-50'
                     )}
                     onClick={() =>
                       rest.onChange(options.map((option) => option.value))
                     }
                   >
-                    {rest.selectAllLabel ?? "Select all"}
+                    {rest.selectAllLabel ?? 'Select all'}
                   </button>
                 )}
               </div>
@@ -184,21 +187,21 @@ const FormSelect = ({
           )}
         </Combobox>
       </div>
-      {rest.type === "multiple" && Boolean(rest.value?.length) && (
+      {rest.type === 'multiple' && Boolean(rest.value?.length) && (
         <div className="flex w-full flex-wrap gap-1">
-          {rest.value?.map((val: Option["value"]) => (
+          {rest.value?.map((val: Option['value']) => (
             <Badge
               key={val}
               indicatorType="icon"
               indicatorPosition="right"
               icon={MdClose}
               label={
-                options.find((option) => option.value === val)?.label ?? ""
+                options.find((option) => option.value === val)?.label ?? ''
               }
               onIndicatorClicked={() =>
                 rest.onChange(
                   rest.value?.filter(
-                    (activeValue: Option["value"]) => activeValue !== val
+                    (activeValue: Option['value']) => activeValue !== val
                   )
                 )
               }
@@ -208,9 +211,9 @@ const FormSelect = ({
       )}
       <small
         className={cn(
-          "!mt-0.5 flex min-h-[1rem] items-center space-x-1 text-xs",
-          !error && !errorDescription ? "invisible" : "",
-          error ? "text-onDanger-subtle" : ""
+          '!mt-0.5 flex min-h-[1rem] items-center space-x-1 text-xs',
+          !error && !errorDescription ? 'invisible' : '',
+          error ? 'text-onDanger-subtle' : ''
         )}
       >
         {error ? (
