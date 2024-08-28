@@ -1,0 +1,49 @@
+{
+  "name": "calamity-assistance-system",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test:sms": "tsx src/app/api/sms/route.ts"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.1.3",
+    "@supabase/ssr": "^0.5.0",
+    "@tanstack/react-query": "^5.52.2",
+    "@tanstack/react-query-devtools": "^5.52.2",
+    "clsx": "^2.1.1",
+    "drizzle-orm": "^0.33.0",
+    "lodash": "^4.17.21",
+    "next": "14.2.6",
+    "nextjs-toploader": "^3.6.15",
+    "postgres": "^3.4.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-filerobot-image-editor": "^4.8.1",
+    "react-geek-form": "^1.0.0-beta.3",
+    "react-icons": "^5.3.0",
+    "react-number-format": "^5.4.1",
+    "react-toastify": "^10.0.5",
+    "tailwind-merge": "^2.5.2",
+    "twilio": "^5.2.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "dotenv": "^16.4.5",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.6",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}

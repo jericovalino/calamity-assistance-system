@@ -1,0 +1,31 @@
+.toggle-switch {
+  @apply relative h-7 w-[3.125rem];
+  & > input[type='checkbox'] {
+    @apply hidden;
+  }
+  /* defaults */
+  & > input[type='checkbox'] ~ label {
+    @apply inline-block h-full w-full cursor-pointer rounded-full transition-colors;
+    &::before {
+      @apply absolute top-1/2 grid h-5 w-5 -translate-y-1/2 place-items-center rounded-full bg-white shadow-sm transition-all;
+    }
+  }
+
+  /* off */
+  & > input[type='checkbox'] ~ label {
+    @apply bg-gray-300;
+    &::before {
+      content: url('../../assets/images/icons/toggle-off.svg');
+      @apply left-[calc(0%+0.25rem)];
+    }
+  }
+
+  /* on */
+  & > input[type='checkbox']:checked ~ label {
+    @apply bg-success;
+    &::before {
+      content: url('../../assets/images/icons/toggle-on.svg');
+      @apply left-[calc(100%-1.50rem)];
+    }
+  }
+}

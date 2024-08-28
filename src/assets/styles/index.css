@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-50: #ffffff;
+    --brand-100: #f7ffed;
+    --brand-200: #e6fec5;
+    --brand-300: #d5fd9d;
+    --brand-400: #c4fc75;
+    --brand-500: #b3fb4d;
+    --brand-600: #9cfa16;
+    --brand-700: #7ed305;
+    --brand-800: #5d9c04;
+    --brand-900: #3c6502;
+    --brand-100: #2c4a02;
+    --brand-110: #2c4a02;
+
+    --green-50: #f0f5ef;
+    --green-100: #d0e6c9;
+    --green-200: #b8d9ad;
+    --green-300: #90c87e;
+    --green-400: #72aa5f;
+    --green-500: #459c13;
+    --green-600: #338700;
+    --green-700: #31770e;
+    --green-800: #205c00;
+    --green-900: #1e5403;
+    --green-1000: #1a4d00;
+    --green-1100: #245310;
+
+    --blue-50: #eef2f9;
+    --blue-100: #d4e1f3;
+    --blue-200: #bdd4f7;
+    --blue-300: #9dbbe9;
+    --blue-400: #6c9ce5;
+    --blue-500: #528adf;
+    --blue-600: #1570eb;
+    --blue-700: #2065c7;
+    --blue-800: #21539c;
+    --blue-900: #1b4789;
+    --blue-1000: #16407e;
+    --blue-1100: #0f3a78;
+
+    --yellow-50: #fff4ee;
+    --yellow-100: #ffdaca;
+    --yellow-200: #fdbfa4;
+    --yellow-300: #ff9e72;
+    --yellow-400: #eb7c47;
+    --yellow-500: #de6728;
+    --yellow-600: #d04900;
+    --yellow-700: #aa4c1a;
+    --yellow-800: #903a03;
+    --yellow-900: #7f3100;
+    --yellow-1000: #722c00;
+    --yellow-1100: #6a2700;
+
+    --red-50: #f9edeb;
+    --red-100: #f9d9d4;
+    --red-200: #fbc3bc;
+    --red-300: #f4a298;
+    --red-400: #e07f76;
+    --red-500: #e45d54;
+    --red-600: #d43e39;
+    --red-700: #ba3935;
+    --red-800: #a12121;
+    --red-900: #8a2421;
+    --red-1000: #7a211e;
+    --red-1100: #6e221f;
+
+    --black-50: #101011;
+    --black-100: #131313;
+    --black-200: #171718;
+    --black-300: #1a1a1b;
+    --black-400: #1c1c1d;
+    --black-500: #232324;
+    --black-600: #2e2e2f;
+    --black-700: #373738;
+    --black-800: #3e3e3f;
+    --black-900: #444444;
+    --black-1000: #474748;
+    --black-1100: #4a4a4a;
+
+    --white-50: #ffffff;
+    --white-100: #fdfdfe;
+    --white-200: #f8f9fa;
+    --white-300: #eff1f4;
+    --white-400: #e3e6eb;
+    --white-500: #d5d9e0;
+    --white-600: #c3cad4;
+    --white-700: #b0b8c6;
+    --white-800: #9ba5b7;
+    --white-900: #8491a7;
+    --white-1000: #6d7d96;
+    --white-1100: #566885;
+
+    --alpha-80: #101011cc;
+    --alpha-60: #10101199;
+    --alpha-40: #10101166;
+    --alpha-20: #10101133;
+    --alpha-10: #1010111a;
+  }
+
+  html {
+    font-family: Inter, system-ui, sans-serif;
+    color: var(--black-800);
+  }
+}
